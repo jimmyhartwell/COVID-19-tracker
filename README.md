@@ -21,6 +21,6 @@ python tracker.py us germany netherlands
 - Input number of days drawn on graph
 - ...
 
-## Note
-- `termgraph.py` is copied over from `https://github.com/mkaz/termgraph` with 2 lines of bug fix of mine.
-- Tested only on macOS Catalina
+## Notes
+- `termgraph.py` is copied over from `https://github.com/mkaz/termgraph` with 2 lines of bug fix of mine
+- Tested only on macOS Catalina with Python 3.7
