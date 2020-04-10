@@ -19,6 +19,9 @@ DEATHS_PER_MILLION = "deathsPerOneMillion"
 TESTS = "tests"
 TESTS_PER_MILLION = "testsPerOneMillion"
 
+# Historical info
+TIMELINE = "timeline"
+
 # Friendly info
 Info = namedtuple("Info", ["title", "emoji"])
 
@@ -36,4 +39,4 @@ CASE_NUMBERS = {
 SUCCESS = 200
 
 # Error messages
-ERROR = "Cannot load information!"
+ERROR = "Cannot load information for"
