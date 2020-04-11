@@ -51,7 +51,7 @@ def summarize(country_info, world=False):
     updated = datetime.fromtimestamp(country_info[UPDATED_TIME] // 1000).strftime(
         "%d/%m/%Y %H:%M"
     )
-    output = f"*** COVID-19 information in {country} on {updated} ***\n"
+    output = f"\n*** COVID-19 information in {country} on {updated} ***\n"
     output += f"-------------------------------------------------------\n"
 
     for k, v in CASE_NUMBERS.items():
