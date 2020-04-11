@@ -18,8 +18,15 @@ python tracker.py us
 python tracker.py us germany netherlands
 ```
 
-## Roadmap
-- ...
+## TouchBar Widget
+If you want even more depression looking at the case numbers:
+- Install [BetterTouchTool](https://folivora.ai/) and open it
+- Choose `Touch Bar` in the dropdown menu on top and then the plus `+` sign at the bottom
+- In the `Touch Bar Trigger Config` column, choose `Shell Script / Task Widget`
+- In the `Scipt` field, put `echo $(python3 \[Path to tracker_touchbar.py\] us germany)` to track numbers for US and Germany. Of course feel free to change the countries as you want
+- In the `Executr script every`, put what you want. For me it's `3600`
+- If you use virtualenv, make sure to put the command to activate it before the command above
+- Right now it only supports showing number of active cases...
 
 ## Notes
 - `termgraph.py` is copied over from `https://github.com/mkaz/termgraph` with 2 lines of bug fix of mine
