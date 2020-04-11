@@ -3,13 +3,13 @@ from datetime import datetime
 import flag
 import requests
 import sys
-
+import argparse
 from params import *
 import termgraph as tg
 
 WORLD_BASE_PATH = "https://corona.lmao.ninja/all"
 COUNTRY_BASE_PATH = "https://corona.lmao.ninja/countries/{}"
-HISTORICAL_BASE_PATH = "https://corona.lmao.ninja/v2/historical/{}?lastdays=15"
+HISTORICAL_BASE_PATH = "https://corona.lmao.ninja/v2/historical/{}?lastdays={}"
 REQUEST_TYPES = {
     "world": WORLD_BASE_PATH,
     "country": COUNTRY_BASE_PATH,
@@ -17,22 +17,22 @@ REQUEST_TYPES = {
 }
 
 
-def get_info(countries, world=False):
+def get_info(countries, world, last_days):
     if world:
-        summary = request_data(WORLD_BASE_PATH, "world")
+        summary = request_data(WORLD_BASE_PATH, "world", last_days)
         summarize(summary[0], world)
         return
     countries = ",".join(countries)
-    summary = request_data(countries, "country")
-    historical_data = request_data(countries, "historical")
+    summary = request_data(countries, "country", last_days)
+    historical_data = request_data(countries, "historical", last_days)
     for s, h in zip(summary, historical_data):
         summarize(s)
         summarize_history(h)
 
 
-def request_data(countries, request_type):
+def request_data(countries, request_type, last_days):
     base_path = REQUEST_TYPES[request_type]
-    request_link = base_path.format(countries)
+    request_link = base_path.format(countries, last_days)
     response = requests.get(request_link)
     if response.status_code != SUCCESS:
         raise NameError
@@ -86,5 +86,14 @@ def draw_stacked_graph(labels, data, graph_width=100):
 
 
 if __name__ == "__main__":
-    countries = sys.argv[1:]
-    get_info(countries, len(countries) == 0)
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--days", help="Number of days in the past to get case numbers for", type=int)
+    parser.add_argument("countries", help="Countries to get case numbers for. Omit to get numbers globally", nargs="*")
+    args = parser.parse_args()
+    countries = []
+    last_days = 15
+    if args.countries:
+        countries = args.countries
+    if args.days:
+        last_days = args.days
+    get_info(countries, len(countries) == 0, args.days)
