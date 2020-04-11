@@ -39,4 +39,4 @@ CASE_NUMBERS = {
 SUCCESS = 200
 
 # Error messages
-ERROR = "Cannot load information for"
+ERROR = "Cannot load information at the moment"
