@@ -32,7 +32,6 @@ If you want even more depression looking at the case numbers:
 - In the `Scipt` field, put `echo $(python3 [Path to tracker_touchbar.py] -a us germany)` to track active cases for the US and Germany. Optional args: `-a` active cases, `-d` deaths, `-r` recovered cases. Active cases number shown by default
 - In the `Execute script every` field, put what you want. For me it's `3600`
 - If you use virtualenv, make sure to put the command to activate it before the command above
-- Right now it only supports showing number of active cases...
 
 ## Notes
 - `termgraph.py` is copied over from `https://github.com/mkaz/termgraph` with 2 lines of bug fix of mine
