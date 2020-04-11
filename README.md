@@ -17,6 +17,12 @@ python tracker.py
 python tracker.py us
 python tracker.py us germany netherlands
 ```
+## Screenshots
+Used in terminal
+![alt text](https://github.com/tienbach/COVID-19-tracker/raw/master/screenshot.png "Terminal")
+
+Used on TouchBar
+![alt text](https://github.com/tienbach/COVID-19-tracker/raw/master/touchbarshot.png "TouchBar")
 
 ## TouchBar Widget
 If you want even more depression looking at the case numbers:
