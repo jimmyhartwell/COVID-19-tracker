@@ -9,20 +9,10 @@ def short_summarize(country_infos, **kargs):
     for country_info in country_infos:
         country_flag = get_flag(country_info)
         summary += f"{country_flag} "
-        if kargs[ACTIVE]:
-            emoji = CASE_NUMBERS[ACTIVE].emoji
-            deaths = country_info[ACTIVE]
-            summary += f" {emoji} {deaths:,}"
-
-        if kargs[DEATHS]:
-            emoji = CASE_NUMBERS[DEATHS].emoji
-            deaths = country_info[DEATHS]
-            summary += f" {emoji} {deaths:,}"
-
-        if kargs[RECOVERED]:
-            emoji = CASE_NUMBERS[RECOVERED].emoji
-            recovered = country_info[RECOVERED]
-            summary += f" {emoji} {recovered:,}"
+        for k in kargs.keys():
+            emoji = CASE_NUMBERS[k].emoji
+            cases = country_info[k]
+            summary += f" {emoji} {cases:,}"
         summary += " "
     print(summary[:-1])
 
