@@ -14,7 +14,7 @@ python COVID-19-tracker/tracker.py [country ...]
 ## Examples
 ```
 python tracker.py
-python tracker.py us
+python tracker.py us --days 10
 python tracker.py us germany netherlands
 ```
 ## Screenshots
