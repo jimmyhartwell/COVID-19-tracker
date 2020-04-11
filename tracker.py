@@ -1,8 +1,7 @@
 #!/Users/bach/workspace/default/default_env/bin/python3
 from datetime import datetime
-import flag
 import requests
-import sys
+import flag
 import argparse
 from params import *
 import termgraph as tg
@@ -44,10 +43,7 @@ def request_data(countries, request_type, last_days):
 
 def summarize(country_info, world=False):
     if not world:
-        try:
-            country_flag = flag.flag(country_info[COUNTRY_INFO][COUNTRY_ISO2])
-        except:
-            country_flag = ""
+        country_flag = get_flag(country_info)
         country = f"{country_flag}  {country_info[COUNTRY]}"
     else:
         country = "the world"
@@ -62,6 +58,12 @@ def summarize(country_info, world=False):
         output += f"{v.emoji} {country_info[k]:,} {v.title}\n"
     print(output)
 
+def get_flag(country_info):
+    try:
+        country_flag = flag.flag(country_info[COUNTRY_INFO][COUNTRY_ISO2])
+    except:
+        country_flag = ""
+    return country_flag
 
 def summarize_history(country_info):
     timeline = country_info[TIMELINE]
