@@ -9,6 +9,7 @@
 ```
 python COVID-19-tracker/tracker.py [country ...]
 ```
+- Then you can set an alias like `alias covid="python COVID-19-tracker/tracker.py"` to quickly track numbers
 
 ## Examples
 ```
@@ -18,7 +19,6 @@ python tracker.py us germany netherlands
 ```
 
 ## Roadmap
-- Input number of days drawn on graph
 - ...
 
 ## Notes
